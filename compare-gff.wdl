@@ -1,6 +1,6 @@
 version 1.0
 
-import "tasks/gffcomare.wdl" as gffcompare
+import "tasks/gffcompare.wdl" as gffcompare
 
 workflow CompareGff {
     input {
