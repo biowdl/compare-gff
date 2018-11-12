@@ -8,6 +8,7 @@ workflow CompareGff {
         Array[File] databases
         String outputDir
     }
+
     scatter (database in databases) {
         call gffcompare.GffCompare as GffCompare {
             input:

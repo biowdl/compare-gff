@@ -21,22 +21,12 @@
 
 package biowdl.test
 
-import java.io.File
+import nl.biopet.utils.biowdl.PipelineSuccess
 
-import nl.biopet.utils.biowdl.annotations.TestAnnotation
-import nl.biopet.utils.biowdl.{Pipeline, fixtureFile}
-
-trait TestCompareGff extends Pipeline with TestAnnotation {
-  override def inputs: Map[String, Any] =
-    super.inputs ++
-      Map(
-        s"$startPipelineName.outputDir" -> outputDir.getAbsolutePath,
-        s"$startPipelineName.databases" -> List(referenceGtf),
-        s"$startPipelineName.sampleGtf" -> fixtureFile(
-          "samples/rna3/rna3_guided.gtf")
-      )
-
-  override def startPipelineName: String = "CompareGff"
-
-  def startFile: File = new File("comparegff.wdl")
+trait CompareGffSuccess extends CompareGff with PipelineSuccess {
+  val referenceDirectory = s"${referenceGtf.map(_.getName).getOrElse("")}.d"
+  addMustHaveFile(s"$referenceDirectory/gffcmp.annotated.gtf")
+  addMustHaveFile(s"$referenceDirectory/gffcmp.loci")
+  addMustHaveFile(s"$referenceDirectory/gffcmp.stats")
+  addMustHaveFile(s"$referenceDirectory/gffcmp.tracking")
 }

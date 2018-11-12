@@ -21,6 +21,12 @@
 
 package biowdl.test
 
-class TestPipelineFunctionalTest extends TestCompareGffSuccess {
-  override def functionalTest = true
+import nl.biopet.utils.biowdl.annotations.TestAnnotation
+import nl.biopet.utils.biowdl.fixtureFile
+
+class TestCompareGffRna3 extends CompareGffSuccess with TestAnnotation {
+  override def inputs: Map[String, Any] = super.inputs ++ Map(
+    s"$startPipelineName.sampleGtf" -> fixtureFile(
+      "samples/rna3/rna3_guided.gtf")
+  )
 }
