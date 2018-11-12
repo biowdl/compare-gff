@@ -1,9 +1,7 @@
-name: pipeline-template
+name: comparegff
 channels:
-  - bioconda
   - conda-forge
+  - bioconda
   - defaults
-  - r
 dependencies:
-  - pyyaml
-  - biopet-sampleconfig==0.2
+  - gffcompare

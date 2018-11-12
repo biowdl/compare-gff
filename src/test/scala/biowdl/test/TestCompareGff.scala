@@ -36,5 +36,7 @@ trait TestCompareGff extends Pipeline with TestAnnotation {
           "samples/rna3/rna3_guided.gtf")
       )
 
-  def startFile: File = new File("pipeline.wdl")
+  override def startPipelineName: String = "CompareGff"
+
+  def startFile: File = new File("comparegff.wdl")
 }

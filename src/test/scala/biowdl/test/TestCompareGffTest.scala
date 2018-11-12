@@ -23,7 +23,4 @@ package biowdl.test
 
 import nl.biopet.utils.biowdl.samples.{Wgs1PairedEnd, Wgs2PairedEnd}
 
-class TestPipelineTest
-    extends TestCompareGffSuccess
-    with Wgs1PairedEnd
-    with Wgs2PairedEnd
+class TestCompareGffTest extends TestCompareGffSuccess
