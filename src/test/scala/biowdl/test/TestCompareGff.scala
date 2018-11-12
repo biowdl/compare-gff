@@ -23,13 +23,17 @@ package biowdl.test
 
 import java.io.File
 
-import nl.biopet.utils.biowdl.multisample.MultisamplePipeline
+import nl.biopet.utils.biowdl.annotations.TestAnnotation
+import nl.biopet.utils.biowdl.{Pipeline, fixtureFile}
 
-trait TestPipeline extends MultisamplePipeline {
+trait TestCompareGff extends Pipeline with TestAnnotation {
   override def inputs: Map[String, Any] =
     super.inputs ++
       Map(
-        s"$startPipelineName.outputDir" -> outputDir.getAbsolutePath
+        s"$startPipelineName.outputDir" -> outputDir.getAbsolutePath,
+        s"$startPipelineName.databases" -> List(referenceGtf),
+        s"$startPipelineName.sampleGtf" -> fixtureFile(
+          "samples/rna3/rna3_guided.gtf")
       )
 
   def startFile: File = new File("pipeline.wdl")

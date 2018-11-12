@@ -24,7 +24,7 @@ package biowdl.test
 import nl.biopet.utils.biowdl.samples.{Wgs1PairedEnd, Wgs2PairedEnd}
 
 class TestPipelineFunctionalTest
-    extends TestPipelineSuccess
+    extends TestCompareGffSuccess
     with Wgs1PairedEnd
     with Wgs2PairedEnd {
   override def functionalTest = true

@@ -13,7 +13,7 @@ workflow CompareGff {
             input:
                 inputGtfFiles = [sampleGtf],
                 referenceAnnotation = database,
-                outputDir = outputDir + "/" + sub(basename(database), "\.g[tf]f$", ".d")
+                outputDir = outputDir + "/" + basename(database) + ".d"
         }
     }
 
