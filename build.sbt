@@ -1,17 +1,13 @@
 organization := "com.github.biopet"
 organizationName := "Biowdl"
-name := "pipeline-template"
+name := "compare-gff"
 
-biopetUrlName := "pipeline-template"
+biopetUrlName := "compare-gff"
 
 startYear := Some(2018)
 
 biopetIsTool := false
 
-developers += Developer(id = "ffinfo",
-                        name = "Peter van 't Hof",
-                        email = "pjrvanthof@gmail.com",
-                        url = url("https://github.com/ffinfo"))
 developers += Developer(id = "rhpvorderman",
                         name = "Ruben Vorderman",
                         email = "r.h.p.vorderman@lumc.nl",

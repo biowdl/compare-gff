@@ -21,9 +21,12 @@
 
 package biowdl.test
 
-import nl.biopet.utils.biowdl.samples.{Wgs1PairedEnd, Wgs2PairedEnd}
+import nl.biopet.utils.biowdl.annotations.TestAnnotation
+import nl.biopet.utils.biowdl.fixtureFile
 
-class TestPipelineTest
-    extends TestPipelineSuccess
-    with Wgs1PairedEnd
-    with Wgs2PairedEnd
+class TestCompareGffRna3 extends CompareGffSuccess with TestAnnotation {
+  override def inputs: Map[String, Any] = super.inputs ++ Map(
+    s"$startPipelineName.sampleGtf" -> fixtureFile(
+      "samples/rna3/rna3_guided.gtf")
+  )
+}

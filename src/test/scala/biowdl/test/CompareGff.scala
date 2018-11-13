@@ -21,11 +21,20 @@
 
 package biowdl.test
 
-import nl.biopet.utils.biowdl.samples.{Wgs1PairedEnd, Wgs2PairedEnd}
+import java.io.File
 
-class TestPipelineFunctionalTest
-    extends TestPipelineSuccess
-    with Wgs1PairedEnd
-    with Wgs2PairedEnd {
-  override def functionalTest = true
+import nl.biopet.utils.biowdl.Pipeline
+import nl.biopet.utils.biowdl.annotations.Annotation
+
+trait CompareGff extends Pipeline with Annotation {
+  override def inputs: Map[String, Any] =
+    super.inputs ++
+      Map(
+        s"$startPipelineName.outputDir" -> outputDir.getAbsolutePath,
+        s"$startPipelineName.databases" -> List(referenceGtf)
+      )
+
+  override def startPipelineName: String = "CompareGff"
+
+  def startFile: File = new File("comparegff.wdl")
 }

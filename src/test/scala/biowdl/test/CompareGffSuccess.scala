@@ -21,8 +21,12 @@
 
 package biowdl.test
 
-import java.io.File
-
 import nl.biopet.utils.biowdl.PipelineSuccess
 
-trait TestPipelineSuccess extends TestPipeline with PipelineSuccess
+trait CompareGffSuccess extends CompareGff with PipelineSuccess {
+  val referenceDirectory = s"${referenceGtf.map(_.getName).getOrElse("")}.d"
+  addMustHaveFile(s"$referenceDirectory/gffcmp.annotated.gtf")
+  addMustHaveFile(s"$referenceDirectory/gffcmp.loci")
+  addMustHaveFile(s"$referenceDirectory/gffcmp.stats")
+  addMustHaveFile(s"$referenceDirectory/gffcmp.tracking")
+}
