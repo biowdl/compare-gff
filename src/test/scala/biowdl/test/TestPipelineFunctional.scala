@@ -22,6 +22,12 @@
 package biowdl.test
 
 import nl.biopet.utils.biowdl.annotations.Ensembl87
+import nl.biopet.utils.biowdl.fixtureFile
 class TestPipelineFunctional extends CompareGffSuccess with Ensembl87 {
   override def functionalTest = true
+  // TODO: Not a proper functional test. Add big dataset later.
+  override def inputs: Map[String, Any] = super.inputs ++ Map(
+    s"$startPipelineName.sampleGtf" -> fixtureFile(
+      "samples/rna3/rna3_guided.gtf")
+  )
 }
