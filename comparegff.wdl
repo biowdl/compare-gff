@@ -18,4 +18,6 @@ workflow CompareGff {
         }
     }
 
+    output {}
+
 }
