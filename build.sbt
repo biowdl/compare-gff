@@ -7,6 +7,7 @@ biopetUrlName := "compare-gff"
 startYear := Some(2018)
 
 biopetIsTool := false
+biopetIsPipeline := true
 
 developers += Developer(id = "rhpvorderman",
                         name = "Ruben Vorderman",
