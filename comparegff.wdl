@@ -18,6 +18,8 @@ workflow CompareGff {
         }
     }
 
-    output {}
+    output {
+        File gffCompareAnnotated = GffCompare.annotated
+    }
 
 }
