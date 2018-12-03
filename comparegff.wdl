@@ -18,6 +18,8 @@ workflow CompareGff {
         }
     }
 
-    output {}
+    output {
+        Array[File] annotatedGtfs = GffCompare.annotated
+    }
 
 }
